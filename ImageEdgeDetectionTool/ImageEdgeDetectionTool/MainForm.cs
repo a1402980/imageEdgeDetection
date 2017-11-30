@@ -58,9 +58,5 @@ namespace ImageEdgeDetectionTool
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
