@@ -12,6 +12,10 @@ namespace ImageEdgeDetectionTool
 {
     public partial class MainForm : Form
     {
+        private Bitmap originalBitmap = null;
+        private Bitmap selectedBitmap = null;
+        private Bitmap resultBitmap = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -29,7 +33,29 @@ namespace ImageEdgeDetectionTool
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string selected = EdgeDetectionList.SelectedItem.ToString();
+            switch (selected)
+            {
+            case "-Original-":
+                {
+                    resultBitmap = originalBitmap;
+                    break;
+                }
+            case "Zen filter":
+                {
+                    //bitmapResult = s.Laplacian3x3Filter(false);
+                    break;
+                }
+            case "Some filter":
+                {
+                    //bitmapResult = selectedSource.Laplacian3x3Filter(true);
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
