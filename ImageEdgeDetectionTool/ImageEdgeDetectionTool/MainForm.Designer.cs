@@ -40,7 +40,7 @@
             this.loadImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadImage.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.loadImage.Location = new System.Drawing.Point(1051, 15);
-            this.loadImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.loadImage.Margin = new System.Windows.Forms.Padding(6);
             this.loadImage.Name = "loadImage";
             this.loadImage.Size = new System.Drawing.Size(271, 105);
             this.loadImage.TabIndex = 0;
@@ -53,7 +53,7 @@
             this.saveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveImage.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.saveImage.Location = new System.Drawing.Point(1054, 673);
-            this.saveImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.saveImage.Margin = new System.Windows.Forms.Padding(6);
             this.saveImage.Name = "saveImage";
             this.saveImage.Size = new System.Drawing.Size(271, 105);
             this.saveImage.TabIndex = 1;
@@ -64,7 +64,7 @@
             // Image
             // 
             this.Image.Location = new System.Drawing.Point(27, 15);
-            this.Image.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Image.Margin = new System.Windows.Forms.Padding(6);
             this.Image.Name = "Image";
             this.Image.Size = new System.Drawing.Size(1012, 763);
             this.Image.TabIndex = 2;
@@ -74,8 +74,11 @@
             // 
             this.EdgeDetectionList.FormattingEnabled = true;
             this.EdgeDetectionList.ItemHeight = 24;
+            this.EdgeDetectionList.Items.AddRange(new object[] {
+            "Zen filter",
+            "Some filter"});
             this.EdgeDetectionList.Location = new System.Drawing.Point(1054, 132);
-            this.EdgeDetectionList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.EdgeDetectionList.Margin = new System.Windows.Forms.Padding(6);
             this.EdgeDetectionList.Name = "EdgeDetectionList";
             this.EdgeDetectionList.Size = new System.Drawing.Size(268, 436);
             this.EdgeDetectionList.TabIndex = 4;
@@ -90,9 +93,10 @@
             this.Controls.Add(this.Image);
             this.Controls.Add(this.saveImage);
             this.Controls.Add(this.loadImage);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Image)).EndInit();
             this.ResumeLayout(false);
 
