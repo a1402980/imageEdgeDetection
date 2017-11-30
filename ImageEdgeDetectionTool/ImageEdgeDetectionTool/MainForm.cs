@@ -26,5 +26,10 @@ namespace ImageEdgeDetectionTool
         {
 
         }
+
+        private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

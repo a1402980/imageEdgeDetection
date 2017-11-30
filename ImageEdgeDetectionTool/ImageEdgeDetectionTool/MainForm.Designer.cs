@@ -79,6 +79,7 @@
             this.EdgeDetectionList.Name = "EdgeDetectionList";
             this.EdgeDetectionList.Size = new System.Drawing.Size(268, 436);
             this.EdgeDetectionList.TabIndex = 4;
+            this.EdgeDetectionList.SelectedIndexChanged += new System.EventHandler(this.EdgeDetectionList_SelectedIndexChanged);
             // 
             // MainForm
             // 
