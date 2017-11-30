@@ -16,5 +16,15 @@ namespace ImageEdgeDetectionTool
         {
             InitializeComponent();
         }
+
+        private void loadImage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveImage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
