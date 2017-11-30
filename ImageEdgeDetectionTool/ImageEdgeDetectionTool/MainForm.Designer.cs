@@ -39,9 +39,10 @@
             // 
             this.loadImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadImage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.loadImage.Location = new System.Drawing.Point(792, 24);
+            this.loadImage.Location = new System.Drawing.Point(1051, 15);
+            this.loadImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.loadImage.Name = "loadImage";
-            this.loadImage.Size = new System.Drawing.Size(148, 57);
+            this.loadImage.Size = new System.Drawing.Size(271, 105);
             this.loadImage.TabIndex = 0;
             this.loadImage.Text = "Load Image";
             this.loadImage.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             this.saveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveImage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.saveImage.Location = new System.Drawing.Point(792, 581);
+            this.saveImage.Location = new System.Drawing.Point(1054, 673);
+            this.saveImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.saveImage.Name = "saveImage";
-            this.saveImage.Size = new System.Drawing.Size(148, 57);
+            this.saveImage.Size = new System.Drawing.Size(271, 105);
             this.saveImage.TabIndex = 1;
             this.saveImage.Text = "Save Image";
             this.saveImage.UseVisualStyleBackColor = true;
@@ -61,29 +63,33 @@
             // 
             // Image
             // 
-            this.Image.Location = new System.Drawing.Point(12, 12);
+            this.Image.Location = new System.Drawing.Point(27, 15);
+            this.Image.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Image.Name = "Image";
-            this.Image.Size = new System.Drawing.Size(736, 626);
+            this.Image.Size = new System.Drawing.Size(1012, 763);
             this.Image.TabIndex = 2;
             this.Image.TabStop = false;
             // 
             // EdgeDetectionList
             // 
             this.EdgeDetectionList.FormattingEnabled = true;
-            this.EdgeDetectionList.Location = new System.Drawing.Point(792, 135);
+            this.EdgeDetectionList.ItemHeight = 24;
+            this.EdgeDetectionList.Location = new System.Drawing.Point(1054, 132);
+            this.EdgeDetectionList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.EdgeDetectionList.Name = "EdgeDetectionList";
-            this.EdgeDetectionList.Size = new System.Drawing.Size(148, 394);
+            this.EdgeDetectionList.Size = new System.Drawing.Size(268, 436);
             this.EdgeDetectionList.TabIndex = 4;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(956, 650);
+            this.ClientSize = new System.Drawing.Size(1340, 798);
             this.Controls.Add(this.EdgeDetectionList);
             this.Controls.Add(this.Image);
             this.Controls.Add(this.saveImage);
             this.Controls.Add(this.loadImage);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.Image)).EndInit();
