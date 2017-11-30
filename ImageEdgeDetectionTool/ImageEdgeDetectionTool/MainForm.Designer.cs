@@ -39,7 +39,7 @@
             // 
             this.loadImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadImage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.loadImage.Location = new System.Drawing.Point(573, 8);
+            this.loadImage.Location = new System.Drawing.Point(575, 8);
             this.loadImage.Name = "loadImage";
             this.loadImage.Size = new System.Drawing.Size(148, 57);
             this.loadImage.TabIndex = 0;
@@ -66,7 +66,6 @@
             this.Image.Size = new System.Drawing.Size(552, 413);
             this.Image.TabIndex = 2;
             this.Image.TabStop = false;
-
             // 
             // EdgeDetectionList
             // 
@@ -74,7 +73,7 @@
             this.EdgeDetectionList.Items.AddRange(new object[] {
             "Zen filter",
             "Some filter"});
-            this.EdgeDetectionList.Location = new System.Drawing.Point(575, 72);
+            this.EdgeDetectionList.Location = new System.Drawing.Point(575, 96);
             this.EdgeDetectionList.Name = "EdgeDetectionList";
             this.EdgeDetectionList.Size = new System.Drawing.Size(148, 238);
             this.EdgeDetectionList.TabIndex = 4;
