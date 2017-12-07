@@ -41,8 +41,11 @@ namespace ImageEdgeDetectionTool
 
         private void saveImage_Click(object sender, EventArgs e)
         {
-            ImageController imageController = new ImageController(files, bitmap);
-            imageController.saveModifiedFile(resultBitmap);
+            if (resultBitmap != null)
+            {
+                ImageController imageController = new ImageController(files, bitmap);
+                imageController.saveModifiedFile(resultBitmap);
+            }
         }
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,10 +86,11 @@ namespace ImageEdgeDetectionTool
                     {
                         break;
                     }
-                    resultBitmap = previewBitmap;
+                    
             }
             //send the image into the preview
             ImagePreview.Image = previewBitmap;
+            resultBitmap = previewBitmap;
         }
         
     }
