@@ -59,5 +59,15 @@ namespace ImageEdgeDetectionTool.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xing_24x24_png {
+            get {
+                object obj = ResourceManager.GetObject("xing-24x24.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

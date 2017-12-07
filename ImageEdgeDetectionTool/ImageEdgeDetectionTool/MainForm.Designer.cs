@@ -61,9 +61,11 @@
             // 
             // ImagePreview
             // 
+            this.ImagePreview.Image = global::ImageEdgeDetectionTool.Properties.Resources.xing_24x24_png;
             this.ImagePreview.Location = new System.Drawing.Point(15, 12);
             this.ImagePreview.Name = "ImagePreview";
-            this.ImagePreview.Size = new System.Drawing.Size(554, 481);
+            this.ImagePreview.Size = new System.Drawing.Size(539, 478);
+            this.ImagePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.ImagePreview.TabIndex = 2;
             this.ImagePreview.TabStop = false;
             // 
