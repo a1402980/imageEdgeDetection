@@ -39,10 +39,9 @@
             // 
             this.loadImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadImage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.loadImage.Location = new System.Drawing.Point(1054, 15);
-            this.loadImage.Margin = new System.Windows.Forms.Padding(6);
+            this.loadImage.Location = new System.Drawing.Point(575, 8);
             this.loadImage.Name = "loadImage";
-            this.loadImage.Size = new System.Drawing.Size(271, 105);
+            this.loadImage.Size = new System.Drawing.Size(148, 57);
             this.loadImage.TabIndex = 0;
             this.loadImage.Text = "Load Image";
             this.loadImage.UseVisualStyleBackColor = true;
@@ -52,10 +51,9 @@
             // 
             this.saveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveImage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.saveImage.Location = new System.Drawing.Point(1054, 674);
-            this.saveImage.Margin = new System.Windows.Forms.Padding(6);
+            this.saveImage.Location = new System.Drawing.Point(575, 432);
             this.saveImage.Name = "saveImage";
-            this.saveImage.Size = new System.Drawing.Size(271, 105);
+            this.saveImage.Size = new System.Drawing.Size(148, 57);
             this.saveImage.TabIndex = 1;
             this.saveImage.Text = "Save Image";
             this.saveImage.UseVisualStyleBackColor = true;
@@ -63,38 +61,34 @@
             // 
             // ImagePreview
             // 
-            this.ImagePreview.Location = new System.Drawing.Point(28, 15);
-            this.ImagePreview.Margin = new System.Windows.Forms.Padding(6);
+            this.ImagePreview.Location = new System.Drawing.Point(15, 8);
             this.ImagePreview.Name = "ImagePreview";
-            this.ImagePreview.Size = new System.Drawing.Size(1012, 762);
+            this.ImagePreview.Size = new System.Drawing.Size(554, 481);
             this.ImagePreview.TabIndex = 2;
             this.ImagePreview.TabStop = false;
             // 
             // EdgeDetectionList
             // 
             this.EdgeDetectionList.FormattingEnabled = true;
-            this.EdgeDetectionList.ItemHeight = 24;
             this.EdgeDetectionList.Items.AddRange(new object[] {
             "-Original-",
             "Zen filter",
             "Night filter"});
-            this.EdgeDetectionList.Location = new System.Drawing.Point(1054, 177);
-            this.EdgeDetectionList.Margin = new System.Windows.Forms.Padding(6);
+            this.EdgeDetectionList.Location = new System.Drawing.Point(575, 85);
             this.EdgeDetectionList.Name = "EdgeDetectionList";
-            this.EdgeDetectionList.Size = new System.Drawing.Size(268, 436);
-            this.EdgeDetectionList.TabIndex = 4;
+            this.EdgeDetectionList.Size = new System.Drawing.Size(147, 329);
+            this.EdgeDetectionList.TabIndex = 3;
             this.EdgeDetectionList.SelectedIndexChanged += new System.EventHandler(this.EdgeDetectionList_SelectedIndexChanged);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1340, 798);
+            this.ClientSize = new System.Drawing.Size(734, 502);
             this.Controls.Add(this.EdgeDetectionList);
             this.Controls.Add(this.ImagePreview);
             this.Controls.Add(this.saveImage);
             this.Controls.Add(this.loadImage);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.Text = "Image Edge Detection";
             ((System.ComponentModel.ISupportInitialize)(this.ImagePreview)).EndInit();

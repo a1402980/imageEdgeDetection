@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace ImageEdgeDetectionTool
         private Bitmap originalBitmap = null;
         private Bitmap previewBitmap = null;
         private Bitmap resultBitmap = null;
-
+      
         public MainForm()
         {
             InitializeComponent();
@@ -23,10 +24,19 @@ namespace ImageEdgeDetectionTool
             //just some proof of concept stuff
             originalBitmap = previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.panda);
             ImagePreview.Image = originalBitmap;
+
         }
 
         private void loadImage_Click(object sender, EventArgs e)
         {
+            IFiles files = new InputOutputFiles();
+            IBitmap bitmap = new ExtBitmap();
+            imageController imageController = new imageController(files, bitmap);
+
+            Bitmap originalBitmap = imageController.openOriginalFile();
+
+            previewBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
+            ImagePreview.Image = previewBitmap;
 
         }
 
@@ -36,46 +46,46 @@ namespace ImageEdgeDetectionTool
         }
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
-        {   
+        {
             //initialize the preview
             previewBitmap = originalBitmap;
 
             string selected = EdgeDetectionList.SelectedItem.ToString();
             switch (selected)
             {
-            case "-Original-":
-                {
-                    previewBitmap = originalBitmap;
-                    System.Diagnostics.Debug.WriteLine("111111111111111111111111111111111111111111");
-                    break;
-                }
-            case "Zen filter":
-                {
+                case "-Original-":
+                    {
+                        previewBitmap = originalBitmap;
+                        System.Diagnostics.Debug.WriteLine("111111111111111111111111111111111111111111");
+                        break;
+                    }
+                case "Zen filter":
+                    {
                         //previewBitmap = previewBitmap.Laplacian3x3Filter(true);
 
                         //just some proof of concept stuff
                         previewBitmap = previewBitmap.ZenFilter();
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
-                    System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
-                    break;
-                }
-            case "Night filter":
-                {
+                        System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
+                        break;
+                    }
+                case "Night filter":
+                    {
                         //just some proof of concept stuff
                         previewBitmap = previewBitmap.NightFilter();
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo);
                         System.Diagnostics.Debug.WriteLine("333333333333333333333333333333333");
-                    //bitmapResult = selectedSource.Laplacian3x3Filter(true);
-                    break;
-                }
-            default:
-                {
-                    break;
-                }
+                        //bitmapResult = selectedSource.Laplacian3x3Filter(true);
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
             }
             //send the image into the preview
             ImagePreview.Image = previewBitmap;
         }
-
+        
     }
 }
