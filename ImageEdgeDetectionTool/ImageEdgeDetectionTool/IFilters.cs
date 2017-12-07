@@ -9,7 +9,7 @@ namespace ImageEdgeDetectionTool
 {
     public interface IFilters
     {
-        Bitmap NightFilter();
-        Bitmap ZenFilter();
+        Bitmap NightFilter(Bitmap sourceBitmap);
+        Bitmap ZenFilter(Bitmap sourceBitmap);
     }
 }

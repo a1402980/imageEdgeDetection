@@ -12,6 +12,7 @@ namespace ImageEdgeDetectionTool
     {
         private IFiles files;
         private IBitmap bitmap;
+        private IFilters filters;
 
         public ImageController(IFiles files, IBitmap bitmap)
         {

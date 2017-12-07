@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace ImageEdgeDetectionTool
 {
-    public static class Filters
+    class Filters : IFilters
     {
         //night filter IMPORTED
-        public static Bitmap NightFilter(this Bitmap sourceBitmap)
+        public Bitmap NightFilter(Bitmap sourceBitmap)
         {
-            Bitmap resultBitmap = Filters.ApplyFilter(new Bitmap(sourceBitmap), 1, 1, 1, 25);
+            Bitmap resultBitmap = ApplyFilter(new Bitmap(sourceBitmap), 1, 1, 1, 25);
             return resultBitmap;
         }
 
-        public static Bitmap ZenFilter(this Bitmap sourceBitmap)
+        public Bitmap ZenFilter(Bitmap sourceBitmap)
         {
-            Bitmap resultBitmap = Filters.ApplyFilter(new Bitmap(sourceBitmap), 1, 10, 1, 1);
+            Bitmap resultBitmap = ApplyFilter(new Bitmap(sourceBitmap), 1, 10, 1, 1);
             return resultBitmap;
         }
 
 
 
         //apply color filter at your own taste IMPORTED
-        public static Bitmap ApplyFilter(Bitmap bmp, int alpha, int red, int blue, int green)
+        public Bitmap ApplyFilter(Bitmap bmp, int alpha, int red, int blue, int green)
         {
 
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);

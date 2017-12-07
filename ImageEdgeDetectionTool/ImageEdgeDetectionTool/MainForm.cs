@@ -64,9 +64,6 @@ namespace ImageEdgeDetectionTool
                     }
                 case "Zen filter":
                     {
-                        //previewBitmap = previewBitmap.Laplacian3x3Filter(true);
-
-                        //just some proof of concept stuff
 
                         previewBitmap = previewBitmap.ZenFilter();
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
