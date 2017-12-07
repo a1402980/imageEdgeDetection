@@ -9,7 +9,6 @@ namespace ImageEdgeDetectionTool
 {
     public static class Filters
     {
-        //night filter IMPORTED
         public static Bitmap NightFilter(this Bitmap sourceBitmap)
         {
             Bitmap resultBitmap = Filters.ApplyFilter(new Bitmap(sourceBitmap), 1, 1, 1, 25);
@@ -24,7 +23,6 @@ namespace ImageEdgeDetectionTool
 
 
 
-        //apply color filter at your own taste IMPORTED
         public static Bitmap ApplyFilter(Bitmap bmp, int alpha, int red, int blue, int green)
         {
 
