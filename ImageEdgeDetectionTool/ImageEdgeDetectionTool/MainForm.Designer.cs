@@ -77,7 +77,7 @@
             this.EdgeDetectionList.Items.AddRange(new object[] {
             "-Original-",
             "Zen filter",
-            "Some filter"});
+            "Night filter"});
             this.EdgeDetectionList.Location = new System.Drawing.Point(1054, 177);
             this.EdgeDetectionList.Margin = new System.Windows.Forms.Padding(6);
             this.EdgeDetectionList.Name = "EdgeDetectionList";
