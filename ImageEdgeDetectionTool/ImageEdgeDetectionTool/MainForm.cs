@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ImageEdgeDetectionTool
@@ -24,19 +17,26 @@ namespace ImageEdgeDetectionTool
         {
             InitializeComponent();
 
+            //disable the list and save when there is no image selected
             saveImage.Enabled = false;
             EdgeDetectionList.Enabled = false;
         }
 
         private void loadImage_Click(object sender, EventArgs e)
-        {
+        {   
+            //initialize the controller
             ImageController imageController = new ImageController(files, bitmap, filters);
             
+            //call the open file method from the controller
             originalBitmap = imageController.openOriginalFile();
 
+            //set the original bitma into a resized version of the selected file, so it fits on the preview
             originalBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
+
+            //send the bitmap into the preview
             ImagePreview.Image = originalBitmap;
 
+            //enable the save button and list
             saveImage.Enabled = true;
             EdgeDetectionList.Enabled = true;
         }
@@ -44,12 +44,17 @@ namespace ImageEdgeDetectionTool
         private void saveImage_Click(object sender, EventArgs e)
         {
             if (resultBitmap != null)
-            {
+            {   
+                //Initialize the controller
                 ImageController imageController = new ImageController(files, bitmap, filters);
+
+                //save the image
                 imageController.saveModifiedFile(resultBitmap);
             }
+            //show a message telling that the image has been saved
             MessageBox.Show("Your image has been saved successfully!", "Image saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            //reset the form
             MainForm NewForm = new MainForm();
             NewForm.Show();
             this.Dispose(false);
@@ -57,34 +62,32 @@ namespace ImageEdgeDetectionTool
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Initialize the controller
             ImageController imageController = new ImageController(files, bitmap, filters);
+
             //initialize the preview
             previewBitmap = originalBitmap;
 
+            //take the currently selected rows header and compare the value in a switch case
             string selected = EdgeDetectionList.SelectedItem.ToString();
             switch (selected)
             {
                 case "-Original-":
-                    {
+                    {   
+                        //if the selected is original, show the original
                         previewBitmap = originalBitmap;
-                        System.Diagnostics.Debug.WriteLine("111111111111111111111111111111111111111111");
                         break;
                     }
                 case "Zen filter":
                     {
-
+                        //set the previewBitmap with the selected filter
                         previewBitmap = imageController.ZenFilter(previewBitmap);
-                        //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
-                        System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
                         break;
                     }
                 case "Night filter":
                     {
-                        //just some proof of concept stuff
+                        //set the previewBitmap with the selected filter
                         previewBitmap = imageController.NightFilter(previewBitmap);
-                        //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo);
-                        System.Diagnostics.Debug.WriteLine("333333333333333333333333333333333");
-                        //bitmapResult = selectedSource.Laplacian3x3Filter(true);
                         break;
                     }
                 default:

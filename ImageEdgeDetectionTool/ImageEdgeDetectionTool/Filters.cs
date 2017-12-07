@@ -1,36 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+
 
 namespace ImageEdgeDetectionTool
 {
     class Filters : IFilters
     {
-        //night filter IMPORTED
+        
         public Bitmap NightFilter(Bitmap sourceBitmap)
         {
+            //set the parameters for the apply filter method to apply the Night filter
             Bitmap resultBitmap = ApplyFilter(new Bitmap(sourceBitmap), 1, 1, 1, 25);
             return resultBitmap;
         }
 
         public Bitmap ZenFilter(Bitmap sourceBitmap)
         {
+            //set the parameters for the apply filter method to apply the Zen filter
             Bitmap resultBitmap = ApplyFilter(new Bitmap(sourceBitmap), 1, 10, 1, 1);
             return resultBitmap;
         }
 
 
 
-        //apply color filter at your own taste IMPORTED
+        //Apply a filter with with values that are inserted with the RGBA values
         public Bitmap ApplyFilter(Bitmap bmp, int alpha, int red, int blue, int green)
         {
-
+            //make a copy of the bitmap passed with the method
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
 
-
+            //apply the filter to the width and height of the image
             for (int i = 0; i < bmp.Width; i++)
             {
                 for (int x = 0; x < bmp.Height; x++)

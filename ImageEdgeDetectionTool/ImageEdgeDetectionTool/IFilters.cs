@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ImageEdgeDetectionTool
-{
+{    //interface for calling the filter classes methods
     public interface IFilters
     {
         Bitmap NightFilter(Bitmap sourceBitmap);
