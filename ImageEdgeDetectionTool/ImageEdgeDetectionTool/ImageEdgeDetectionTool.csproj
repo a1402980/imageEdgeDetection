@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters.cs" />
+    <Compile Include="IFilters.cs" />
     <Compile Include="LoadAndSave.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
