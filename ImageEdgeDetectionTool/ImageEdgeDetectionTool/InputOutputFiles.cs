@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace ImageEdgeDetectionTool
 {
+    // manipulation of input/output files that implement the IFiles interface
     class InputOutputFiles : IFiles
     {
         public InputOutputFiles()
         {
 
         }
+
+        // method that will be called through the interface to open the file dialog and load the image
         public Bitmap openFile()
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -27,6 +25,7 @@ namespace ImageEdgeDetectionTool
 
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                // reading the file and setting the bitmap equal to what the streamreader read
                 StreamReader streamReader = new StreamReader(ofd.FileName);
                 originalBitmap = (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
                 streamReader.Close();
@@ -34,6 +33,7 @@ namespace ImageEdgeDetectionTool
             return originalBitmap;
         }
 
+        // method that will be called through the interface to save the image after the filter has been applied
         public void saveFile(Bitmap resultBitmap)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -56,6 +56,7 @@ namespace ImageEdgeDetectionTool
                     imgFormat = ImageFormat.Jpeg;
                 }
 
+                // when the user click save button a streamwrite will be instanciated and save the image name and the image with the filter
                 StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);
                 resultBitmap.Save(streamWriter.BaseStream, imgFormat);
                 streamWriter.Flush();

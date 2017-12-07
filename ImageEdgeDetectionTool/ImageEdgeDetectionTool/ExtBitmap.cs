@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ImageEdgeDetectionTool
 {
+    // bitmap class that uses IBitmap interface 
     public class ExtBitmap : IBitmap
     {
+        // method that will take the image loaded and copy it to the square canvas in the form
         public Bitmap CopyToSquareCanvas(Bitmap sourceBitmap, int canvasWidthLenght)
         {
             float ratio = 1.0f;
