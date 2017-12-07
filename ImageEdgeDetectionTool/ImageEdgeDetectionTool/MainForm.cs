@@ -64,14 +64,16 @@ namespace ImageEdgeDetectionTool
                         //previewBitmap = previewBitmap.Laplacian3x3Filter(true);
 
                         //just some proof of concept stuff
-                        previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
+                        previewBitmap = previewBitmap.ZenFilter();
+                        //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
                     System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
                     break;
                 }
-            case "Some filter":
+            case "Night filter":
                 {
                         //just some proof of concept stuff
-                        previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo);
+                        previewBitmap = previewBitmap.NightFilter();
+                        //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo);
                         System.Diagnostics.Debug.WriteLine("333333333333333333333333333333333");
                     //bitmapResult = selectedSource.Laplacian3x3Filter(true);
                     break;
