@@ -18,6 +18,7 @@ namespace ImageEdgeDetectionTool
         private Bitmap resultBitmap = null;
         private IFiles files = new InputOutputFiles();
         private IBitmap bitmap = new ExtBitmap();
+        private IFilters filters = new Filters();
       
         public MainForm()
         {
@@ -29,8 +30,8 @@ namespace ImageEdgeDetectionTool
 
         private void loadImage_Click(object sender, EventArgs e)
         {
-            ImageController imageController = new ImageController(files, bitmap);
-
+            ImageController imageController = new ImageController(files, bitmap, filters);
+            
             originalBitmap = imageController.openOriginalFile();
 
             originalBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
@@ -44,7 +45,7 @@ namespace ImageEdgeDetectionTool
         {
             if (resultBitmap != null)
             {
-                ImageController imageController = new ImageController(files, bitmap);
+                ImageController imageController = new ImageController(files, bitmap, filters);
                 imageController.saveModifiedFile(resultBitmap);
             }
             MessageBox.Show("Your image has been saved successfully!", "Image saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -56,6 +57,7 @@ namespace ImageEdgeDetectionTool
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ImageController imageController = new ImageController(files, bitmap, filters);
             //initialize the preview
             previewBitmap = originalBitmap;
 
@@ -71,7 +73,7 @@ namespace ImageEdgeDetectionTool
                 case "Zen filter":
                     {
 
-                        previewBitmap = previewBitmap.ZenFilter();
+                        previewBitmap = imageController.ZenFilter(previewBitmap);
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
                         System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
                         break;
@@ -79,7 +81,7 @@ namespace ImageEdgeDetectionTool
                 case "Night filter":
                     {
                         //just some proof of concept stuff
-                        previewBitmap = previewBitmap.NightFilter();
+                        previewBitmap = imageController.NightFilter(previewBitmap);
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo);
                         System.Diagnostics.Debug.WriteLine("333333333333333333333333333333333");
                         //bitmapResult = selectedSource.Laplacian3x3Filter(true);

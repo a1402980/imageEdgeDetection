@@ -87,13 +87,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tiger.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hippo.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\panda.bmp" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

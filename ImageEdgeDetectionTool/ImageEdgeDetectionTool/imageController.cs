@@ -14,10 +14,11 @@ namespace ImageEdgeDetectionTool
         private IBitmap bitmap;
         private IFilters filters;
 
-        public ImageController(IFiles files, IBitmap bitmap)
+        public ImageController(IFiles files, IBitmap bitmap, IFilters filters)
         {
             this.files = files;
             this.bitmap = bitmap;
+            this.filters = filters;
         }
         public ImageController()
         {
@@ -38,6 +39,17 @@ namespace ImageEdgeDetectionTool
         {
             Bitmap previewBitmap = bitmap.CopyToSquareCanvas(originalBitmap, canvasWidthLenght);
             return previewBitmap;
+        }
+
+        public Bitmap NightFilter(Bitmap sourceBitmap)
+        {
+            sourceBitmap = filters.NightFilter(sourceBitmap);
+            return sourceBitmap;
+        }
+        public Bitmap ZenFilter(Bitmap sourceBitmap)
+        {
+            sourceBitmap = filters.ZenFilter(sourceBitmap);
+            return sourceBitmap;
         }
     }
 }
