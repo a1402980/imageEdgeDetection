@@ -45,7 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoadAndSave.cs" />
+    <Compile Include="ExtBitmap.cs" />
+    <Compile Include="IBitmap.cs" />
+    <Compile Include="IFiles.cs" />
+    <Compile Include="imageController.cs" />
+    <Compile Include="InputOutputFiles.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

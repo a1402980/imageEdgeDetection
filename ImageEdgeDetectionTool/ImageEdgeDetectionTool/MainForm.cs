@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace ImageEdgeDetectionTool
         private Bitmap originalBitmap = null;
         private Bitmap previewBitmap = null;
         private Bitmap resultBitmap = null;
-
+      
         public MainForm()
         {
             InitializeComponent();
@@ -23,10 +24,19 @@ namespace ImageEdgeDetectionTool
             //just some proof of concept stuff
             originalBitmap = previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.panda);
             ImagePreview.Image = originalBitmap;
+
         }
 
         private void loadImage_Click(object sender, EventArgs e)
         {
+            IFiles files = new InputOutputFiles();
+            IBitmap bitmap = new ExtBitmap();
+            imageController imageController = new imageController(files, bitmap);
+
+            Bitmap originalBitmap = imageController.openOriginalFile();
+
+            previewBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
+            ImagePreview.Image = previewBitmap;
 
         }
 
