@@ -16,33 +16,33 @@ namespace ImageEdgeDetectionTool
         private Bitmap originalBitmap = null;
         private Bitmap previewBitmap = null;
         private Bitmap resultBitmap = null;
+        private IFiles files = new InputOutputFiles();
+        private IBitmap bitmap = new ExtBitmap();
       
         public MainForm()
         {
             InitializeComponent();
             
             //just some proof of concept stuff
-            originalBitmap = previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.panda);
-            ImagePreview.Image = originalBitmap;
+            //originalBitmap = previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.panda);
+            //ImagePreview.Image = originalBitmap;
 
         }
 
         private void loadImage_Click(object sender, EventArgs e)
         {
-            IFiles files = new InputOutputFiles();
-            IBitmap bitmap = new ExtBitmap();
-            imageController imageController = new imageController(files, bitmap);
+            ImageController imageController = new ImageController(files, bitmap);
 
-            Bitmap originalBitmap = imageController.openOriginalFile();
+            originalBitmap = imageController.openOriginalFile();
 
-            previewBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
-            ImagePreview.Image = previewBitmap;
-
+            originalBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
+            ImagePreview.Image = originalBitmap;
         }
 
         private void saveImage_Click(object sender, EventArgs e)
         {
-
+            ImageController imageController = new ImageController(files, bitmap);
+            imageController.saveModifiedFile(resultBitmap);
         }
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,6 +64,7 @@ namespace ImageEdgeDetectionTool
                         //previewBitmap = previewBitmap.Laplacian3x3Filter(true);
 
                         //just some proof of concept stuff
+
                         previewBitmap = previewBitmap.ZenFilter();
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
                         System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
@@ -82,6 +83,7 @@ namespace ImageEdgeDetectionTool
                     {
                         break;
                     }
+                    resultBitmap = previewBitmap;
             }
             //send the image into the preview
             ImagePreview.Image = previewBitmap;
