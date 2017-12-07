@@ -39,6 +39,8 @@ namespace ImageEdgeDetectionTool
             //enable the save button and list
             saveImage.Enabled = true;
             EdgeDetectionList.Enabled = true;
+            // set the list index back to 0 when you load a new image
+            EdgeDetectionList.SelectedIndex = 0;
         }
 
         private void saveImage_Click(object sender, EventArgs e)
