@@ -24,8 +24,8 @@ namespace ImageEdgeDetectionTool
             InitializeComponent();
             
             //just some proof of concept stuff
-            originalBitmap = previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.panda);
-            ImagePreview.Image = originalBitmap;
+            //originalBitmap = previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.panda);
+            //ImagePreview.Image = originalBitmap;
 
         }
 
@@ -33,10 +33,10 @@ namespace ImageEdgeDetectionTool
         {
             ImageController imageController = new ImageController(files, bitmap);
 
-            Bitmap originalBitmap = imageController.openOriginalFile();
+            originalBitmap = imageController.openOriginalFile();
 
-            previewBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
-            ImagePreview.Image = previewBitmap;
+            originalBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
+            ImagePreview.Image = originalBitmap;
         }
 
         private void saveImage_Click(object sender, EventArgs e)
@@ -64,6 +64,7 @@ namespace ImageEdgeDetectionTool
                         //previewBitmap = previewBitmap.Laplacian3x3Filter(true);
 
                         //just some proof of concept stuff
+
                         previewBitmap = previewBitmap.ZenFilter();
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
                         System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
