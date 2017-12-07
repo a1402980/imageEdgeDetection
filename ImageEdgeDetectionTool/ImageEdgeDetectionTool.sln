@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEdgeDetectionTool", "ImageEdgeDetectionTool\ImageEdgeDetectionTool.csproj", "{C039C58C-8F53-406B-8600-E47AFD6BEB29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEdgeDetectionToolTests", "ImageEdgeDetectionToolTests\ImageEdgeDetectionToolTests.csproj", "{B819C7FD-3526-4155-88DD-2F5DB595F32D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C039C58C-8F53-406B-8600-E47AFD6BEB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C039C58C-8F53-406B-8600-E47AFD6BEB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C039C58C-8F53-406B-8600-E47AFD6BEB29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B819C7FD-3526-4155-88DD-2F5DB595F32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B819C7FD-3526-4155-88DD-2F5DB595F32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B819C7FD-3526-4155-88DD-2F5DB595F32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B819C7FD-3526-4155-88DD-2F5DB595F32D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
