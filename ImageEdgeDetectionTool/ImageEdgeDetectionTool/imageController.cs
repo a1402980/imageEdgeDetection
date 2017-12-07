@@ -19,6 +19,11 @@ namespace ImageEdgeDetectionTool
             this.bitmap = bitmap;
             this.filters = filters;
         }
+        public ImageController(IFiles files, IBitmap bitmap)
+        {
+            this.files = files;
+            this.bitmap = bitmap;
+        }
         // method that uses the IFile interface to open the file dialog and load the file the user selects
         public Bitmap openOriginalFile()
         {
