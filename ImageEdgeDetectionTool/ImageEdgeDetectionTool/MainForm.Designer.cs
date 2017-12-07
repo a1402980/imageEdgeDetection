@@ -39,7 +39,7 @@
             // 
             this.loadImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadImage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.loadImage.Location = new System.Drawing.Point(575, 8);
+            this.loadImage.Location = new System.Drawing.Point(575, 12);
             this.loadImage.Name = "loadImage";
             this.loadImage.Size = new System.Drawing.Size(148, 57);
             this.loadImage.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.saveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveImage.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.saveImage.Location = new System.Drawing.Point(575, 432);
+            this.saveImage.Location = new System.Drawing.Point(575, 436);
             this.saveImage.Name = "saveImage";
             this.saveImage.Size = new System.Drawing.Size(148, 57);
             this.saveImage.TabIndex = 1;
@@ -74,7 +74,7 @@
             "-Original-",
             "Zen filter",
             "Night filter"});
-            this.EdgeDetectionList.Location = new System.Drawing.Point(575, 85);
+            this.EdgeDetectionList.Location = new System.Drawing.Point(575, 89);
             this.EdgeDetectionList.Name = "EdgeDetectionList";
             this.EdgeDetectionList.Size = new System.Drawing.Size(147, 329);
             this.EdgeDetectionList.TabIndex = 3;
