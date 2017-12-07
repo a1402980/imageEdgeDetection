@@ -22,11 +22,9 @@ namespace ImageEdgeDetectionTool
         public MainForm()
         {
             InitializeComponent();
-            
-            //just some proof of concept stuff
-            //originalBitmap = previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.panda);
-            //ImagePreview.Image = originalBitmap;
 
+            saveImage.Enabled = false;
+            EdgeDetectionList.Enabled = false;
         }
 
         private void loadImage_Click(object sender, EventArgs e)
@@ -37,6 +35,9 @@ namespace ImageEdgeDetectionTool
 
             originalBitmap = imageController.CopyToSquareCanvas(originalBitmap, ImagePreview.Width);
             ImagePreview.Image = originalBitmap;
+
+            saveImage.Enabled = true;
+            EdgeDetectionList.Enabled = true;
         }
 
         private void saveImage_Click(object sender, EventArgs e)
@@ -46,6 +47,11 @@ namespace ImageEdgeDetectionTool
                 ImageController imageController = new ImageController(files, bitmap);
                 imageController.saveModifiedFile(resultBitmap);
             }
+            MessageBox.Show("Your image has been saved successfully!", "Image saved!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            MainForm NewForm = new MainForm();
+            NewForm.Show();
+            this.Dispose(false);
         }
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
