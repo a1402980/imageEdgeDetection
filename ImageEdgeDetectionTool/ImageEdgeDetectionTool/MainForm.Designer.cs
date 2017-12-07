@@ -74,11 +74,10 @@
             "-Original-",
             "Zen filter",
             "Night filter"});
-            this.EdgeDetectionList.Location = new System.Drawing.Point(1054, 177);
-            this.EdgeDetectionList.Margin = new System.Windows.Forms.Padding(6);
+            this.EdgeDetectionList.Location = new System.Drawing.Point(575, 85);
             this.EdgeDetectionList.Name = "EdgeDetectionList";
-            this.EdgeDetectionList.Size = new System.Drawing.Size(148, 303);
-            this.EdgeDetectionList.TabIndex = 4;
+            this.EdgeDetectionList.Size = new System.Drawing.Size(147, 329);
+            this.EdgeDetectionList.TabIndex = 3;
             this.EdgeDetectionList.SelectedIndexChanged += new System.EventHandler(this.EdgeDetectionList_SelectedIndexChanged);
             // 
             // MainForm

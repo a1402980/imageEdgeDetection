@@ -46,46 +46,46 @@ namespace ImageEdgeDetectionTool
         }
 
         private void EdgeDetectionList_SelectedIndexChanged(object sender, EventArgs e)
-        {   
+        {
             //initialize the preview
             previewBitmap = originalBitmap;
 
             string selected = EdgeDetectionList.SelectedItem.ToString();
             switch (selected)
             {
-            case "-Original-":
-                {
-                    previewBitmap = originalBitmap;
-                    System.Diagnostics.Debug.WriteLine("111111111111111111111111111111111111111111");
-                    break;
-                }
-            case "Zen filter":
-                {
+                case "-Original-":
+                    {
+                        previewBitmap = originalBitmap;
+                        System.Diagnostics.Debug.WriteLine("111111111111111111111111111111111111111111");
+                        break;
+                    }
+                case "Zen filter":
+                    {
                         //previewBitmap = previewBitmap.Laplacian3x3Filter(true);
 
                         //just some proof of concept stuff
                         previewBitmap = previewBitmap.ZenFilter();
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.tiger);
-                    System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
-                    break;
-                }
-            case "Night filter":
-                {
+                        System.Diagnostics.Debug.WriteLine("222222222222222222222222222222222");
+                        break;
+                    }
+                case "Night filter":
+                    {
                         //just some proof of concept stuff
                         previewBitmap = previewBitmap.NightFilter();
                         //previewBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo);
                         System.Diagnostics.Debug.WriteLine("333333333333333333333333333333333");
-                    //bitmapResult = selectedSource.Laplacian3x3Filter(true);
-                    break;
-                }
-            default:
-                {
-                    break;
-                }
+                        //bitmapResult = selectedSource.Laplacian3x3Filter(true);
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
             }
             //send the image into the preview
             ImagePreview.Image = previewBitmap;
         }
-
+        
     }
 }
