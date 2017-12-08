@@ -26,6 +26,18 @@ namespace ImageEdgeDetectionToolTests
         [TestMethod]
         public void NightFilterTest()
         {
+            var files = Substitute.For<IFiles>();
+            var bitmaps = Substitute.For<IBitmap>();
+            var filters = Substitute.For<IFilters>();
+            ImageController imageController = new ImageController(files, bitmaps, filters);
+
+            Bitmap originalBitmap = Properties.Resources.panda;
+            Bitmap expectedBitmap;
+            imageController.NightFilter(originalBitmap);
+
+            Bitmap actualBitmap = Properties.Resources.pandanight;
+
+
         }
         [TestMethod]
         public void ZenFilterTest()
@@ -41,7 +53,6 @@ namespace ImageEdgeDetectionToolTests
             ImageController imageController = new ImageController(files, bitmaps);
 
             
-            Bitmap expectedBitmap = null;
 
             Assert.IsTrue(true);
         }
