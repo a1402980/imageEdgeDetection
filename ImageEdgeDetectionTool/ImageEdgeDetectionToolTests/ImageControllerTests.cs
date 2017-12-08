@@ -26,6 +26,34 @@ namespace ImageEdgeDetectionToolTests
         [TestMethod]
         public void NightFilterTest()
         {
+            //Create a substitute for the Interfaces
+            //var userRepository = Substitute.For<IUserRepository>();
+            //var smsSender = Substitute.For<ISmsSender>();
+
+            var files = Substitute.For<IFiles>();
+            var bitmap = Substitute.For<IBitmap>();
+            var filters = Substitute.For<IFilters>();
+
+            //Create a local user
+            //User user = CreateUser();
+            var sourceBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo);
+            var mockBitmap = new Bitmap(ImageEdgeDetectionTool.Properties.Resources.hippo_night);
+
+            //Create a controller
+            ImageController imageController = new ImageController(files, bitmap, filters);
+            //LoginController testLoginController = new LoginController(smsSender, userRepository);
+
+            //Propose to return something from GetById
+            imageController.NightFilter(previewBitmap).Returns<Bitmap>(mockBitmap);
+            //userRepository.GetById("sally").Returns<User>(user);
+
+            //Exec SendNewPassword
+            //testLoginController.SendNewPassword("sally");
+            testBitmap = imageController.NightFilter(sourceBitmap);
+
+            //Password should have been changed
+            Assert.AreEqual(mockBitmap, testBitmap);
+            //Assert.AreNotEqual(user.Password, "sally");
         }
         [TestMethod]
         public void ZenFilterTest()
