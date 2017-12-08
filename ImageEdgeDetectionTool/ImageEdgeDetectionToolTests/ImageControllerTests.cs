@@ -40,7 +40,7 @@ namespace ImageEdgeDetectionToolTests
 
             imageController.NightFilter(sourceBitmap).Returns<Bitmap>(mockBitmap);
 
-           Bitmap testBitmap = imageController.NightFilter(sourceBitmap);
+            Bitmap testBitmap = imageController.NightFilter(sourceBitmap);
 
             Assert.AreEqual(mockBitmap, testBitmap);
 
