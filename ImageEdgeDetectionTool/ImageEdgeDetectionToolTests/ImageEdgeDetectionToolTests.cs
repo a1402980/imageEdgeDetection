@@ -7,7 +7,7 @@ using System.Drawing;
 namespace ImageEdgeDetectionToolTests
 {
     [TestClass]
-    public class ImageControllerTests
+    public class ImageEdgeDetectionToolTests
     {
         private TestContext testContextInstance;
 
@@ -27,8 +27,6 @@ namespace ImageEdgeDetectionToolTests
         [TestMethod]
         public void NightFilterTest()
         {
-
-
             var files = Substitute.For<IFiles>();
             var bitmap = Substitute.For<IBitmap>();
             var filters = Substitute.For<IFilters>();
@@ -44,14 +42,10 @@ namespace ImageEdgeDetectionToolTests
             Bitmap testBitmap = imageController.NightFilter(sourceBitmap);
 
             Assert.AreEqual(mockBitmap, testBitmap);
-
         }
-
         [TestMethod]
         public void NightFilterTestException()
         {
-
-
             var files = Substitute.For<IFiles>();
             var bitmap = Substitute.For<IBitmap>();
             var filters = Substitute.For<IFilters>();
@@ -65,13 +59,10 @@ namespace ImageEdgeDetectionToolTests
             imageController.NightFilter(invalidBitmap);
 
             Assert.ThrowsException<Exception>(() => filters.NightFilter(invalidBitmap));
-
         }
-
         [TestMethod]
         public void ZenFilterTestException()
         {
-
             var files = Substitute.For<IFiles>();
             var bitmap = Substitute.For<IBitmap>();
             var filters = Substitute.For<IFilters>();
@@ -85,9 +76,7 @@ namespace ImageEdgeDetectionToolTests
             imageController.ZenFilter(invalidBitmap);
 
             Assert.ThrowsException<Exception>(() => filters.ZenFilter(invalidBitmap));
-
         }
-
         [TestMethod]
         public void ZenFilterTest()
         {
@@ -106,7 +95,6 @@ namespace ImageEdgeDetectionToolTests
             Bitmap testBitmap = imageController.ZenFilter(sourceBitmap);
 
             Assert.AreEqual(mockBitmap, testBitmap);
-
         }
         [TestMethod]
         public void InputFileTest()
@@ -154,7 +142,6 @@ namespace ImageEdgeDetectionToolTests
             Assert.ThrowsException<Exception>(() => files.openFile());
         }
         [TestMethod]
-
         public void OutputFileExceptionTest()
         {
             var files = Substitute.For<IFiles>();
@@ -171,7 +158,6 @@ namespace ImageEdgeDetectionToolTests
             Assert.ThrowsException<Exception>(() => files.saveFile(mockBitmap));
         }
         [TestMethod]
-
         public void CopyToSquareCanvasTest()
         {
             var files = Substitute.For<IFiles>();
@@ -205,9 +191,7 @@ namespace ImageEdgeDetectionToolTests
             Bitmap expectedBitmap = imageController.CopyToSquareCanvas(mockBitmap, canvasWidth);
 
             Assert.ThrowsException<Exception>(() => bitmaps.CopyToSquareCanvas(mockBitmap, canvasWidth));
-
         }
-
 
     }
 }
