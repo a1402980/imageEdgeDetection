@@ -56,24 +56,35 @@ namespace ImageEdgeDetectionToolTests
             var bitmap = Substitute.For<IBitmap>();
             var filters = Substitute.For<IFilters>();
 
-
-            Bitmap sourceBitmap = Properties.Resources.panda;
-            Bitmap mockBitmap = Properties.Resources.pandanight;
             Bitmap invalidBitmap = null;
+
+            filters.NightFilter(invalidBitmap).Returns(x => throw new Exception());
 
             ImageController imageController = new ImageController(files, bitmap, filters);
 
-            //imageController.NightFilter(null).Returns<Bitmap>(invalidBitmap);
+            imageController.NightFilter(invalidBitmap);
 
-            Bitmap testBitmap = imageController.NightFilter(invalidBitmap);
-
-            Assert.IsTrue(true);
+            Assert.ThrowsException<Exception>(() => filters.NightFilter(invalidBitmap));
 
         }
 
         [TestMethod]
         public void ZenFilterTestException()
         {
+
+            var files = Substitute.For<IFiles>();
+            var bitmap = Substitute.For<IBitmap>();
+            var filters = Substitute.For<IFilters>();
+
+            Bitmap invalidBitmap = null;
+
+            filters.ZenFilter(invalidBitmap).Returns(x => throw new Exception());
+
+            ImageController imageController = new ImageController(files, bitmap, filters);
+
+            imageController.ZenFilter(invalidBitmap);
+
+            Assert.ThrowsException<Exception>(() => filters.ZenFilter(invalidBitmap));
 
         }
 
