@@ -156,8 +156,45 @@ namespace ImageEdgeDetectionToolTests
             ImageController imageController = new ImageController(files, bitmaps);
 
             imageController.saveModifiedFile(mockBitmap);
-
+            
             Assert.ThrowsException<Exception>(() => files.saveFile(mockBitmap));
+        }
+        [TestMethod]
+
+        public void CopyToSquareCanvasTest()
+        {
+            var files = Substitute.For<IFiles>();
+            var bitmaps = Substitute.For<IBitmap>();
+
+            int canvasWidth = 593;
+            Bitmap mockBitmap = Properties.Resources.panda;
+
+            bitmaps.CopyToSquareCanvas(mockBitmap, canvasWidth).Returns<Bitmap>(mockBitmap);
+
+            ImageController imageController = new ImageController(files, bitmaps);
+
+            Bitmap expectedBitmap = imageController.CopyToSquareCanvas(mockBitmap, canvasWidth);
+
+            Assert.AreEqual(expectedBitmap, mockBitmap);
+        }
+
+        [TestMethod]
+        public void CopyToSuqareCanvasExceptionTest()
+        {
+            var files = Substitute.For<IFiles>();
+            var bitmaps = Substitute.For<IBitmap>();
+
+            int canvasWidth = 593;
+            Bitmap mockBitmap = Properties.Resources.panda;
+
+            bitmaps.CopyToSquareCanvas(mockBitmap, canvasWidth).Returns(x => throw new Exception());
+
+            ImageController imageController = new ImageController(files, bitmaps);
+
+            Bitmap expectedBitmap = imageController.CopyToSquareCanvas(mockBitmap, canvasWidth);
+
+            Assert.ThrowsException<Exception>(() => bitmaps.CopyToSquareCanvas(mockBitmap, canvasWidth));
+
         }
 
 
