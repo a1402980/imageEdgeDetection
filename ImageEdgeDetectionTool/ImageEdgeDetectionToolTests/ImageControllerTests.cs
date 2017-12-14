@@ -1,6 +1,7 @@
 ﻿using ImageEdgeDetectionTool;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
+using System;
 using System.Drawing;
 
 namespace ImageEdgeDetectionToolTests
@@ -44,13 +45,10 @@ namespace ImageEdgeDetectionToolTests
 
             Assert.AreEqual(mockBitmap, testBitmap);
 
-
-
-
         }
 
         [TestMethod]
-        public void NightFilterTestInvalid()
+        public void NightFilterTestException()
         {
 
 
@@ -71,12 +69,13 @@ namespace ImageEdgeDetectionToolTests
 
             Assert.IsTrue(true);
 
-
-
-
         }
 
+        [TestMethod]
+        public void ZenFilterTestException()
+        {
 
+        }
 
         [TestMethod]
         public void ZenFilterTest()
@@ -135,14 +134,32 @@ namespace ImageEdgeDetectionToolTests
             var files = Substitute.For<IFiles>();
             var bitmaps = Substitute.For<IBitmap>();
 
-            Bitmap mockBitmap = null;
-
-            files.openFile().Returns<Bitmap>(mockBitmap);
+            files.openFile().Returns(x => throw new Exception());
+ 
             ImageController imageController = new ImageController(files, bitmaps);
 
-            Bitmap expectedBitmap = imageController.openOriginalFile();
+            Bitmap mockBitmap = imageController.openOriginalFile();
 
-            Assert.IsNull(expectedBitmap);
+            Assert.ThrowsException<Exception>(() => files.openFile());
         }
+        [TestMethod]
+
+        public void OutputFileExceptionTest()
+        {
+            var files = Substitute.For<IFiles>();
+            var bitmaps = Substitute.For<IBitmap>();
+
+            Bitmap mockBitmap = Properties.Resources.pandanight;
+
+            files.When(x => x.saveFile(mockBitmap)).Do(x => { throw new Exception(); });
+
+            ImageController imageController = new ImageController(files, bitmaps);
+
+            imageController.saveModifiedFile(mockBitmap);
+
+            Assert.ThrowsException<Exception>(() => files.saveFile(mockBitmap));
+        }
+
+
     }
 }
