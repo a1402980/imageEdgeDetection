@@ -59,21 +59,45 @@ namespace ImageEdgeDetectionToolTests
             var files = Substitute.For<IFiles>();
             var bitmaps = Substitute.For<IBitmap>();
 
+            Bitmap mockBitmap = Properties.Resources.panda;
+
+            files.openFile().Returns<Bitmap>(mockBitmap);
             ImageController imageController = new ImageController(files, bitmaps);
 
-            
+            Bitmap expectedBitmap = imageController.openOriginalFile();
 
-            Assert.IsTrue(true);
+            Assert.AreEqual(expectedBitmap, mockBitmap);
         }
         [TestMethod]
         public void OutputFileTest()
         {
+            var files = Substitute.For<IFiles>();
+            var bitmaps = Substitute.For<IBitmap>();
 
+            Bitmap mockBitmap = Properties.Resources.pandanight;
+ 
+            files.saveFile(mockBitmap);
+
+            ImageController imageController = new ImageController(files, bitmaps);
+
+            imageController.saveModifiedFile(mockBitmap);
+
+            Assert.IsTrue(true);
         }
         [TestMethod]
         public void InputFileExceptionTest()
         {
+            var files = Substitute.For<IFiles>();
+            var bitmaps = Substitute.For<IBitmap>();
 
+            Bitmap mockBitmap = null;
+
+            files.openFile().Returns<Bitmap>(mockBitmap);
+            ImageController imageController = new ImageController(files, bitmaps);
+
+            Bitmap expectedBitmap = imageController.openOriginalFile();
+
+            Assert.IsNull(expectedBitmap);
         }
     }
 }
