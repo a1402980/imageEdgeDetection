@@ -40,7 +40,7 @@ namespace ImageEdgeDetectionToolTests
 
             imageController.NightFilter(sourceBitmap).Returns<Bitmap>(mockBitmap);
 
-           Bitmap testBitmap = imageController.NightFilter(sourceBitmap);
+            Bitmap testBitmap = imageController.NightFilter(sourceBitmap);
 
             Assert.AreEqual(mockBitmap, testBitmap);
 
@@ -48,9 +48,54 @@ namespace ImageEdgeDetectionToolTests
 
 
         }
+
+        [TestMethod]
+        public void NightFilterTestInvalid()
+        {
+
+
+            var files = Substitute.For<IFiles>();
+            var bitmap = Substitute.For<IBitmap>();
+            var filters = Substitute.For<IFilters>();
+
+
+            Bitmap sourceBitmap = Properties.Resources.panda;
+            Bitmap mockBitmap = Properties.Resources.pandanight;
+            Bitmap invalidBitmap = null;
+
+            ImageController imageController = new ImageController(files, bitmap, filters);
+
+            //imageController.NightFilter(null).Returns<Bitmap>(invalidBitmap);
+
+            Bitmap testBitmap = imageController.NightFilter(invalidBitmap);
+
+            Assert.IsTrue(true);
+
+
+
+
+        }
+
+
+
         [TestMethod]
         public void ZenFilterTest()
         {
+            var files = Substitute.For<IFiles>();
+            var bitmap = Substitute.For<IBitmap>();
+            var filters = Substitute.For<IFilters>();
+
+
+            Bitmap sourceBitmap = Properties.Resources.panda;
+            Bitmap mockBitmap = Properties.Resources.pandazen;
+
+            ImageController imageController = new ImageController(files, bitmap, filters);
+
+            imageController.ZenFilter(sourceBitmap).Returns<Bitmap>(mockBitmap);
+
+            Bitmap testBitmap = imageController.ZenFilter(sourceBitmap);
+
+            Assert.AreEqual(mockBitmap, testBitmap);
 
         }
         [TestMethod]

@@ -87,6 +87,7 @@
   <ItemGroup>
     <Content Include="Resources\panda.bmp" />
     <Content Include="Resources\pandanight.bmp" />
+    <None Include="Resources\pandazen.bmp" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

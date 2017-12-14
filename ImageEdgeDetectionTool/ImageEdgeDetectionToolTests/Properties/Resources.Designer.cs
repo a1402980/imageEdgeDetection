@@ -79,5 +79,15 @@ namespace ImageEdgeDetectionToolTests.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pandazen {
+            get {
+                object obj = ResourceManager.GetObject("pandazen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
