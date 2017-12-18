@@ -44,17 +44,7 @@ namespace ImageEdgeDetectionTool
 
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string fileExtension = Path.GetExtension(sfd.FileName).ToUpper();
-                ImageFormat imgFormat = ImageFormat.Png;
-
-                if (fileExtension == "BMP")
-                {
-                    imgFormat = ImageFormat.Bmp;
-                }
-                else if (fileExtension == "JPG")
-                {
-                    imgFormat = ImageFormat.Jpeg;
-                }
+                ImageFormat imgFormat = ImageFormat.Jpeg;
 
                 // when the user click save button a streamwrite will be instanciated and save the image name and the image with the filter
                 StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);

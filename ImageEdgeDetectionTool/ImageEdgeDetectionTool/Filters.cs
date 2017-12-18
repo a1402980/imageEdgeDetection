@@ -3,7 +3,7 @@
 
 namespace ImageEdgeDetectionTool
 {
-    class Filters : IFilters
+    public class Filters : IFilters
     {
         
         public Bitmap NightFilter(Bitmap sourceBitmap)
