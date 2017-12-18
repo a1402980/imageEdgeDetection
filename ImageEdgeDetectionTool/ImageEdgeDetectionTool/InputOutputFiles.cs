@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 namespace ImageEdgeDetectionTool
 {
     // manipulation of input/output files that implement the IFiles interface
-    class InputOutputFiles : IFiles
+    public class InputOutputFiles : IFiles
     {
         public InputOutputFiles()
         {
