@@ -35,9 +35,8 @@ namespace ImageEdgeDetectionToolTests
             Bitmap sourceBitmap = Properties.Resources.panda;
             Bitmap mockBitmap = Properties.Resources.pandanight;
 
+            filters.NightFilter(sourceBitmap).Returns<Bitmap>(mockBitmap);
             ImageController imageController = new ImageController(files, bitmap, filters);
-
-            imageController.NightFilter(sourceBitmap).Returns<Bitmap>(mockBitmap);
 
             Bitmap testBitmap = imageController.NightFilter(sourceBitmap);
 
@@ -84,13 +83,12 @@ namespace ImageEdgeDetectionToolTests
             var bitmap = Substitute.For<IBitmap>();
             var filters = Substitute.For<IFilters>();
 
-
+          
             Bitmap sourceBitmap = Properties.Resources.panda;
             Bitmap mockBitmap = Properties.Resources.pandazen;
 
+            filters.ZenFilter(sourceBitmap).Returns<Bitmap>(mockBitmap);
             ImageController imageController = new ImageController(files, bitmap, filters);
-
-            imageController.ZenFilter(sourceBitmap).Returns<Bitmap>(mockBitmap);
 
             Bitmap testBitmap = imageController.ZenFilter(sourceBitmap);
 
